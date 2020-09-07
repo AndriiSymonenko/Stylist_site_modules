@@ -35,7 +35,8 @@ const sliders = () => {
         });
     }
 
-    bindSlider(".blog-list--item", ".next", ".prev")
+    bindSlider(".blog-list--item", ".next-button", ".prev-button");
+    bindSlider(".reviews-list--item", ".next-button__feedback", ".prev-button__feedback");
 }
 
 export default sliders;

@@ -534,14 +534,17 @@ input[type="radio"].visually-hidden {
 
 .reviews-list--item {
   background-color: #e1cfb2;
-  /* margin-right: 86px; */
   width: 458px;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   font-family: "Roboto-Light";
   font-weight: 200;
   font-size: 16px;
   padding-top: 59px;
+}
+
+.reviews-list--item.active-slide {
+  display: flex;
 }
 
 .reviews-list--item img {
@@ -586,6 +589,7 @@ input[type="radio"].visually-hidden {
 .blog {
   width: 1007px;
   margin-bottom: 3%;
+
 }
 
 .blog-list {
@@ -594,6 +598,7 @@ input[type="radio"].visually-hidden {
   padding-left: 0;
   justify-content: space-between;
   flex-wrap: wrap;
+
 }
 
 .blog-list--item.active-slide {
@@ -651,6 +656,23 @@ input[type="radio"].visually-hidden {
   transform: rotate(45deg);
 }
 
+.button-slider {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+
+.prev-button,
+.next-button,
+.prev-button__feedback,
+.next-button__feedback {
+  font-size: 0px;
+  cursor: pointer;
+  background-color: transparent;
+  border-width: 0px;
+}
+
+
 /* footer style */
 .main-footer {
   display: flex;
@@ -688,7 +710,7 @@ input[type="radio"].visually-hidden {
   margin: 0;
   font-weight: 200;
   font-size: 24px;
-  /* line-height: 36px; */
+
 }
 
 .footer-contact__description span {
@@ -1292,6 +1314,10 @@ input[type="radio"].visually-hidden {
     margin-right: 3%;
     padding: 2%;
   }
+
+  /* .reviews-list--item.active-slide {
+    display: block;
+  } */
 
   .reviews-list--item:last-child {
     margin-right: 0;

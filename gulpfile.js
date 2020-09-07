@@ -7,31 +7,13 @@ const browsersync = require("browser-sync");
 const dist = "./dist/";
 
 gulp.task("copy-html", () => {
-  return gulp.src("./src/index.html")
+  return gulp.src("./src/*.html")
     .pipe(gulp.dest(dist))
     .pipe(browsersync.stream());
 
 });
 
-gulp.task("copy-html", () => {
-  return gulp.src("./src/blog.html")
-    .pipe(gulp.dest(dist))
-    .pipe(browsersync.stream());
 
-});
-
-gulp.task("copy-contacts", () => {
-  return gulp.src("./src/contacts.html")
-    .pipe(gulp.dest(dist))
-    .pipe(browsersync.stream());
-
-});
-gulp.task("copy-html", () => {
-  return gulp.src("./src/wardrobe.html")
-    .pipe(gulp.dest(dist))
-    .pipe(browsersync.stream());
-
-});
 
 gulp.task("build-js", () => {
   return gulp.src("./src/js/main.js")
@@ -78,15 +60,12 @@ gulp.task("watch", () => {
     notify: true
   });
 
-  gulp.watch("./src/index.html", gulp.parallel("copy-html"));
-  gulp.watch("./src/contacts.html", gulp.parallel("copy-contacts"));
-  gulp.watch("./src/wardrobe.html", gulp.parallel("copy-html"));
-  gulp.watch("./src/blog.html", gulp.parallel("copy-html"));
+  gulp.watch("./src/*.html", gulp.parallel("copy-html"));
   gulp.watch("./src/assets/**/*.*", gulp.parallel("copy-assets"));
   gulp.watch("./src/js/**/*.js", gulp.parallel("build-js"));
 });
 
-gulp.task("build", gulp.parallel("copy-html", "copy-contacts", "copy-assets", "build-js"));
+gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-js"));
 
 gulp.task("build-prod-js", () => {
   return gulp.src("./src/js/main.js")
