@@ -875,6 +875,34 @@ input[type="radio"].visually-hidden {
   display: block;
 }
 
+.test-popup-window {
+  width: 30%;
+  position: fixed;
+  top: 20%;
+  left: 37%;
+  background-color: #ffffff;
+  width: 30%;
+  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  z-index: 50;
+}
+
+.test-popup-container {
+  text-align: left;
+}
+
+.test-popup-container h3 {
+  text-align: center;
+}
+
+.test-popup-window--list {
+  padding-bottom: 5%;
+}
+
+.test-popup-window--list__item input {
+  margin-right: 4%;
+}
+
 /* toggle-menu */
 .toggle-menu {
   display: none;
@@ -1432,7 +1460,7 @@ input[type="radio"].visually-hidden {
     margin-right: 0;
   }
 
-  .price-discount {}
+
 
   .services-price .button-request {
     margin-left: 7%;

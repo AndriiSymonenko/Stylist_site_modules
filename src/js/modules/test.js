@@ -14,6 +14,7 @@ const testCreate = (stateTest) => {
 
         render() {
             const element = document.createElement('div');
+            element.classList.add('test-popup-container')
             element.innerHTML = `
             <h3>${(this.question)}</h3>
     <ul class="test-popup-window--list">
