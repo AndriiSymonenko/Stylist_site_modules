@@ -6,5 +6,3 @@ window.addEventListener('DOMContentLoaded', () => {
     sliders();
     testCreate();
 });
-
-console.log(1);

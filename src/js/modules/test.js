@@ -1,102 +1,45 @@
 const testCreate = (stateTest) => {
     const button = document.querySelector('.button-test');
+    let testFormGet = document.querySelector('.test-popup-window--list');
+    let getInput = testFormGet.querySelectorAll('input');
+    let getQuestion = document.querySelector('.test-popup-container > h3');
+    let getAnswer = testFormGet.querySelectorAll('label');
 
-    const answerLabel = document.querySelectorAll('.test-popup-window--list > li > label');
+    function changeElementText(element, text) {
+        element.innerHTML = text;
+    };
 
+    function clearInput() {
+        getInput.forEach(item => {
+            item.checked = false;
+        });
+    };
 
-    class AnswerQuestionConstructor {
-        constructor(question, answer_1, answer_2, answer_3, parentQuestionSelector, parentAnswerSelector_1, parentAnswerSelector_2, parentAnswerSelector_3, ) {
-            this.question = question;
-            this.answer_1 = answer_1;
-            this.answer_2 = answer_2;
-            this.answer_3 = answer_3;
-            this.parentQuestion = document.querySelector(parentQuestionSelector);
-            this.parentAnswer_1 = document.querySelector(parentAnswerSelector_1);
-            this.parentAnswer_2 = document.querySelector(parentAnswerSelector_2);
-            this.parentAnswer_3 = document.querySelector(parentAnswerSelector_3);
+    let arrQuestions = ['Lorem ipsum_1', 'Lorem ipsum_2', 'Lorem ipsum_3', ]
+    let arrAnswers = [
+        ['Lorem 1', 'Lorem 2', 'Lorem 3'],
+        ['Lorem 4', 'Lorem 5', 'Lorem 6'],
+        ['Lorem 7', 'Lorem 8', 'Lorem 9']
+    ];
+
+    let counterQuestion = 0;
+    let counterAnswer = 0;
+    let counterArrayAnswer = 0;
+    testFormGet.addEventListener('input', (event) => {
+        let target = event.target;
+        counterAnswer++;
+        counterQuestion++;
+        if (target.tagName === 'INPUT') {
+            setTimeout(changeElementText, 500, getQuestion, arrQuestions[counterQuestion - 1]);
+
+            getAnswer[0].innerHTML = arrAnswers[counterArrayAnswer][0];
+            getAnswer[1].innerHTML = arrAnswers[counterArrayAnswer][0 + counterAnswer];
+            getAnswer[2].innerHTML = arrAnswers[counterArrayAnswer][1 + counterAnswer];
+            counterArrayAnswer++;
+            counterAnswer--;
+            setTimeout(clearInput, 500);
         }
-
-        renderQuize() {
-            this.parentQuestion.insertAdjacentHTML('afterbegin', `<h3>${this.question}</h3>`);
-            this.parentAnswer_1.insertAdjacentHTML('afterend', `<label data-answer="1" for="answer_1">${this.answer_1}</label>`);
-            this.parentAnswer_2.insertAdjacentHTML('afterend', `<label data-answer="2" for="answer_2">${this.answer_2}</label>`);
-            this.parentAnswer_3.insertAdjacentHTML('afterend', `<label data-answer="3" for="answer_3">${this.answer_3}</label>`);
-        }
-
-
-    }
-
-    new AnswerQuestionConstructor(
-        'Lorem ipsum',
-        'Lorem 1',
-        'Lorem 2',
-        'Lorem 3',
-        '.test-popup-container',
-        '#answer_1',
-        '#answer_2',
-        '#answer_3',
-    ).renderQuize();
-
-
-    // let testFormGet = document.querySelector('.test-popup-window > div > ul');
-    // console.log(testFormGet);
-    // testFormGet.addEventListener('input', (event) => {
-    //     let target = event.target
-    //     if (target.tagName === 'INPUT') {
-
-    //     }
-    // });
-
-    // answerCheckbox.forEach(item => {
-    //     item.addEventListener('input', () => {
-    //         if (item.checked = true) {
-    //             item.checked = false;
-    //         }
-    //     })
-    // });
-
-    // const questionObj = {
-    //     question_1: 'Lorem ipsum 1',
-    //     question_2: 'Lorem ipsum 2',
-    // }
-
-    // function getKey(obj) {
-    //     let arr = [];
-    //     for (let key in obj) {
-    //         arr.push(obj[key]);
-    //     }
-    //     return arr
-    // }
-
-    // let quest = getKey(questionObj);
-
-
-    // console.log(quest);
-
-    // function changeElementText(element, text) {
-    //     element.innerHTML = text;
-    // }
-
-
-    // let testFormGet = document.querySelector('.test-popup-window--list');
-    // let getInput = testFormGet.querySelectorAll('input');
-    // let getQuestion = document.querySelector('.test-popup-container > h3');
-
-    // function clearInput() {
-    //     getInput.forEach(item => {
-    //         item.checked = false;
-    //     });
-    // }
-
-    // //Rewrite to function
-    // testFormGet.addEventListener('click', (event) => {
-    //     let target = event.target;
-    //     if (target.tagName === 'INPUT') {
-
-    //         setTimeout(changeElementText, 700, getQuestion, questionObj.question_1);
-    //         setTimeout(clearInput, 700);
-    //     }
-    // })
+    });
 
 };
 
