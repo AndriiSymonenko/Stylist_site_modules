@@ -53,6 +53,7 @@ const modals = () => {
     }
 
     bindModal(".button-request", ".popup", ".modal-close", ".black-wrapper");
+    bindModal(".button-test", ".test-popup-window", ".modal-test-close", ".black-wrapper");
     // timeModalOpen(".popup", 3000, "open");
 }
 

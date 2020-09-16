@@ -541,6 +541,7 @@
         </ul>
       </div>
     </footer>
+    <div class="black-wrapper"></div>
     <!-- end footer content -->
     <section class="popup">
       <h2>Оставить заявку</h2>
@@ -564,28 +565,44 @@
         <button class="modal-close" type="button">Закрыть</button>
       </form>
     </section>
-    <div class="test-popup-window">
+    <section class="test-popup-window">
       <div class="test-popup-container">
         <h3>Lorem ipsum</h3>
         <ul class="test-popup-window--list">
           <li class="test-popup-window--list__item">
-            <input class="option-input" type="checkbox" id="answer_1" name="answer_1">
-            <label data-answer="1" for="answer_1">Lorem_test</label>
+            <input class="option-input" type="checkbox" id="1" name="answer_1">
+            <label data-answer="1" for="1">Lorem_test</label>
           </li>
           <li class="test-popup-window--list__item">
-            <input class="option-input" type="checkbox" id="answer_2" class="option-input" name="answer_2">
-            <label data-answer="2" for="answer_2">Lorem_test</label>
+            <input class="option-input" type="checkbox" id="2" class="option-input" name="answer_2">
+            <label data-answer="2" for="2">Lorem_test</label>
           </li>
           <li class="test-popup-window--list__item">
-            <input class="option-input" type="checkbox" id="answer_3" name="answer_3">
-            <label data-answer="3" for="answer_3">Lorem_test</label>
+            <input class="option-input" type="checkbox" id="3" name="answer_3">
+            <label data-answer="3" for="3">Lorem_test</label>
           </li>
         </ul>
-        <button class="modal-test-close" type="button">Закрыть</button>
-      </div>
-      <div class="black-wrapper"></div>
+        <div class="feedback-test">
+          <h3>Результат</h3>
+          <p class="feedback-test__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus,
+            voluptatum voluptate obcaecati aperiam provident libero quis, quisquam nulla earum pariatur doloribus at,
+            alias adipisci amet aspernatur tenetur quia cupiditate accusamus.
+          </p>
+          <h4>Хотите получить мою консультацию?</h4>
+          <form class="test-form" action="send.php" method="POST">
+            <label class="visually-hidden" for="name-test">Ваше имя</label>
+            <input type="text" name="name" id="name-test" placeholder="Ваше имя" />
 
-      <script src="script.js"></script>
+            <label class="visually-hidden" for="phone-test">Ваш телефон</label>
+            <input type="text" name="phone" id="phone-test" placeholder="Ваш телефон" />
+            <button class="button button-submit validate-button" type="submit" name="button">Получить</button>
+            <button class="modal-test-close" type="button">Закрыть</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
