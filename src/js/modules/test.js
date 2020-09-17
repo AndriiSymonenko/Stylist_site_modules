@@ -36,11 +36,14 @@ const testCreate = (testArr) => {
         if (target.tagName === 'INPUT') {
             setTimeout(changeElementText, 500, getQuestion, arrQuestions[counterQuestion - 1]);
 
-            testArr.push(target.id); // information
+            testArr.push(+(target.id)); // information
 
             if (counterQuestion === 3) {
+                getInput.forEach(item => {
+                    item.setAttribute('disabled', 'disabled');
+                });
                 feedbackTest.style.display = 'block';
-                let sumArr = testArr.map(numStr => parseInt(numStr)).reduce((accum, curentValue) => accum + (curentValue));
+                let sumArr = testArr.reduce((accum, curentValue) => accum + (curentValue));
                 if (sumArr >= 3 && sumArr < 6) {
                     feedbackText.innerHTML = 'Test 3';
                 } else if (sumArr >= 6 && sumArr < 9) {

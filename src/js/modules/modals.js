@@ -20,8 +20,15 @@ const modals = () => {
                     event.preventDefault();
                 }
                 modal.classList.add('open');
-                document.body.style.overflow = "hidden";
-                overFlow.classList.add("overflow-show");
+                if (modal.classList.contains('test-popup-window')) {
+                    document.body.style.overflow = "";
+                    overFlow.classList.add("overflow-show");
+                } else {
+                    document.body.style.overflow = "hidden";
+                    overFlow.classList.add("overflow-show");
+                }
+                //for test-windows make --> owerflow = '';
+
             });
         });
         close.addEventListener('click', () => {
