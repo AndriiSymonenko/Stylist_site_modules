@@ -27,11 +27,12 @@ const modals = () => {
                     document.body.style.overflow = "hidden";
                     overFlow.classList.add("overflow-show");
                 }
-                //for test-windows make --> owerflow = '';
+
 
             });
         });
         close.addEventListener('click', () => {
+            console.log('close');
             let form = document.querySelector('.main-form');
             form.reset();
             modal.classList.remove('open');
@@ -41,8 +42,10 @@ const modals = () => {
 
         });
 
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
+        overFlow.addEventListener('click', (event) => {
+            if (event.target === overFlow) {
+                console.log(event.target);
+                console.log('close');
                 modal.classList.remove('open');
                 document.body.style.overflow = "";
                 overFlow.classList.remove("overflow-show");
@@ -55,7 +58,7 @@ const modals = () => {
         setTimeout(() => {
             document.querySelector(selector).classList.add(classActive);
             document.body.style.overflow = "hidden";
-            document.querySelector(".black-wrapper").classList.add("overflow-show");
+            overFlow.classList.add("overflow-show");
         }, time);
     }
 

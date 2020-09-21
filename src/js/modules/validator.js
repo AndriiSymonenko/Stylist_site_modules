@@ -33,7 +33,6 @@ const validationForm = () => {
 
         }
 
-
         inputValidate(nameSelector, classElement, regExpName);
         inputValidate(phoneSelector, classElement, regExpPhone);
 
@@ -53,8 +52,8 @@ const validationForm = () => {
             });
         }
     }
-    bindValidation('.validate-button', '.invalid-field', '.main-form', '#name', '#phone');
-    bindValidation('.validate-button', '.invalid-field', '.test-form', '#name-test', '#phone-test');
+    bindValidation('.validate-button', 'invalid-field', '.main-form', '#name', '#phone');
+    bindValidation('.validate-button', 'invalid-field', '.test-form', '#name-test', '#phone-test');
 };
 
 export default validationForm;

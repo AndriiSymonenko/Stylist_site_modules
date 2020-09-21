@@ -6,6 +6,8 @@ const sliders = () => {
             prev = document.querySelector(prevBtn);
         let indexSlide = 1;
 
+        showSlide(1);
+
         function showSlide(n) {
             if (n > slide.length) {
                 indexSlide = 1;
@@ -15,23 +17,39 @@ const sliders = () => {
             }
             slide.forEach((item) => {
                 item.classList.remove("active-slide");
+                if (screen.width < 768) {
+                    slide[indexSlide - 1].classList.add("active-slide");
+                } else {
+                    slide[indexSlide - 1].classList.add("active-slide");
+                    slide[indexSlide].classList.add("active-slide");
+                }
             });
 
-            slide[indexSlide - 1].classList.add("active-slide");
-            slide[indexSlide].classList.add("active-slide");
+
             console.log(indexSlide);
         }
+
+
 
         function plusSlide(n) {
             showSlide((indexSlide += n));
         }
 
         prev.addEventListener("click", () => {
-            plusSlide(-2);
+            if (screen.width < 768) {
+                plusSlide(-1);
+            } else {
+                plusSlide(-2);
+            }
+
         });
 
         next.addEventListener("click", () => {
-            plusSlide(2);
+            if (screen.width < 768) {
+                plusSlide(1);
+            } else {
+                plusSlide(2);
+            }
         });
     }
 

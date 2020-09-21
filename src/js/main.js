@@ -12,4 +12,5 @@ window.addEventListener('DOMContentLoaded', () => {
     // console.log(stateTest);
     toggleMenu();
     validationForm();
+    // console.log(screen.width);
 });
