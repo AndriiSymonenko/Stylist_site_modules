@@ -87,21 +87,18 @@
       <section class="contact-form-info">
         <div class="contact-form inner-page">
           <h3>Напишите мне</h3>
-          <form class="main-form" action="send.php" method="POST">
-            <label class="visually-hidden" for="name-map">Ваше имя</label>
-            <input type="text" name="name" id="name-map" placeholder="Ваше имя" />
+          <form class="contact-form" action="send.php" method="POST">
+            <label class="visually-hidden" for="name-contacts">Ваше имя</label>
+            <input type="text" name="name" id="name-contacts" placeholder="Ваше имя" />
 
-            <label class="visually-hidden" for="email-map">Ваша почта</label>
-            <input type="email" name="email" id="email-map" placeholder="Ваша почта" />
+            <label class="visually-hidden" for="phone-contacts">Ваш номер телефона</label>
+            <input type="text" name="phone" id="phone-contacts" placeholder="Ваш телефон" />
 
-            <label class="visually-hidden" for="phone">Ваш номер телефона</label>
-            <input type="text" name="phone" id="phone-map" placeholder="Ваш телефон" />
-
-            <label class="visually-hidden" for="name">Напишите сообщение</label>
-            <textarea class="callback-message" name="message" id="message" cols="10" rows="10"
+            <label class="visually-hidden" for="message-contacts">Напишите сообщение</label>
+            <textarea class="callback-message" name="message" id="message-contacts" cols="10" rows="10"
               placeholder="Ваше сообщение"></textarea>
 
-            <button class="button button-submit" type="submit" name="button">
+            <button class="button button-submit validate-button" type="submit" name="button">
               оставить заявку
             </button>
           </form>
@@ -221,7 +218,7 @@
     </div>
   </footer>
   <!-- end footer content -->
-  <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

@@ -5,12 +5,16 @@ import toggleMenu from './modules/toggleMenu';
 import validationForm from './modules/validator';
 
 window.addEventListener('DOMContentLoaded', () => {
+    validationForm();
     let stateTest = [];
     modals();
     sliders();
-    testCreate(stateTest);
+    try {
+        testCreate(stateTest);
+    } catch (e) {};
+
     // console.log(stateTest);
     toggleMenu();
-    validationForm();
+
     // console.log(screen.width);
 });

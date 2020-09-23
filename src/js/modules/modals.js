@@ -1,15 +1,9 @@
+import clearInput from './clearInputs'
+
 const modals = () => {
 
-    function clearInput(selectorForm, classDelete) {
-        let selector = document.querySelectorAll(selectorForm);
-        selector.forEach((item) => {
-            item.classList.remove(classDelete);
-            item.style.border = "";
-            item.innerHTML = "";
-        });
-    }
 
-    function bindModal(triggerSelector, modalSelector, closeSelector, overFlowSelector) {
+    function bindModal(triggerSelector, modalSelector, closeSelector, overFlowSelector, formSelector, classDelete) {
         const trigger = document.querySelectorAll(triggerSelector),
             modal = document.querySelector(modalSelector),
             close = document.querySelector(closeSelector),
@@ -33,12 +27,17 @@ const modals = () => {
         });
         close.addEventListener('click', () => {
             console.log('close');
-            let form = document.querySelector('.main-form');
-            form.reset();
+            let form = document.querySelector(formSelector);
+            console.log(form);
+            try {
+                form.reset();
+            } catch (e) {};
+
+
             modal.classList.remove('open');
             document.body.style.overflow = "";
             overFlow.classList.remove("overflow-show");
-            clearInput('.main-form > input', "invalid-field");
+            clearInput(formSelector, classDelete);
 
         });
 
@@ -61,10 +60,13 @@ const modals = () => {
             overFlow.classList.add("overflow-show");
         }, time);
     }
+    try {
+        bindModal(".button-request", ".popup", ".modal-close", ".black-wrapper", '.main-form', '.invalid-field');
+        bindModal(".button-test", ".test-popup-window", ".modal-test-close", ".black-wrapper");
+    } catch (e) {};
 
-    bindModal(".button-request", ".popup", ".modal-close", ".black-wrapper");
-    bindModal(".button-test", ".test-popup-window", ".modal-test-close", ".black-wrapper");
-    // timeModalOpen(".popup", 3000, "open");
+
+    timeModalOpen(".popup", 60000, "open");
 }
 
 export default modals;

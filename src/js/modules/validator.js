@@ -1,3 +1,4 @@
+console.log('catch');
 const validationForm = () => {
 
     function bindValidation(buttonValidate, classElement, formSelector, nameSelector, phoneSelector) {
@@ -8,10 +9,10 @@ const validationForm = () => {
         })
 
 
-        const regExpName = /\w/i;
+        const regExpName = /^([a-zа-яё]+|\d+)$/i;
         const regExpPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
 
-        function inputValidate(selector, classElement, regExp) {
+        function inputValidate(selector, classElement, regExp = true) {
             let input = document.querySelector(selector);
             input.addEventListener("input", () => {
                 if (!input.value || !regExp.test(input.value) || !input) {
@@ -45,6 +46,9 @@ const validationForm = () => {
             form.addEventListener("click", function (event) {
                 if (Name.value === "" || Name.value === null) {
                     event.preventDefault();
+                    Name.classList.add('invalid-field');
+                } else {
+                    Name.style.border = "2px solid #80bd57";;
                 }
                 if (Phone.value === "" || Phone.value === null) {
                     event.preventDefault();
@@ -52,8 +56,20 @@ const validationForm = () => {
             });
         }
     }
-    bindValidation('.validate-button', 'invalid-field', '.main-form', '#name', '#phone');
-    bindValidation('.validate-button', 'invalid-field', '.test-form', '#name-test', '#phone-test');
+    try {
+        bindValidation('.validate-button', 'invalid-field', '.contact-form', '#name-contacts', '#phone-contacts');
+    } catch (e) {
+        bindValidation('.validate-button', 'invalid-field', '.main-form', '#name', '#phone');
+        bindValidation('.validate-button', 'invalid-field', '.test-form', '#name-test', '#phone-test');
+    };
+
+
+
+
+
+
+
+
 };
 
 export default validationForm;
